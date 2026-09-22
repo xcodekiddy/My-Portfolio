@@ -1,0 +1,589 @@
+<title>Konrad Kempinski</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F1EFEF;
+    --ink:#231D27;
+    --ink-2:#6E6573;
+    --ink-3:#938A97;
+    --line:#DDD7DE;
+    --line-strong:#C7BFC9;
+    --accent:#0E6E78;
+    --accent-soft:rgba(14,110,120,.09);
+    --display:"Fraunces","Iowan Old Style",Georgia,serif;
+    --body:"Karla","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#16121A;
+      --ink:#F0EAF2;
+      --ink-2:#A79CAE;
+      --ink-3:#7C7185;
+      --line:#332B3A;
+      --line-strong:#463C4E;
+      --accent:#5ED7DF;
+      --accent-soft:rgba(94,215,223,.11);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#16121A;
+    --ink:#F0EAF2;
+    --ink-2:#A79CAE;
+    --ink-3:#7C7185;
+    --line:#332B3A;
+    --line-strong:#463C4E;
+    --accent:#5ED7DF;
+    --accent-soft:rgba(94,215,223,.11);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .shell{
+    max-width:1140px;
+    margin:0 auto;
+    padding-inline:24px;
+    padding-block:clamp(40px,7vw,80px);
+    display:grid;
+    grid-template-columns:minmax(250px,300px) minmax(0,1fr);
+    gap:clamp(36px,6vw,80px);
+    align-items:start;
+  }
+  @media (max-width:920px){
+    .shell{grid-template-columns:minmax(0,1fr);gap:52px}
+  }
+
+  /* identity rail */
+  @media (min-width:921px){
+    .rail{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 56px)}
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin:0 0 18px;
+  }
+  .name{
+    font-family:var(--display);
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(2.3rem,5.2vw,3rem);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .role{
+    margin:14px 0 0;
+    color:var(--ink-2);
+    font-size:1.02rem;
+    max-width:32ch;
+  }
+  .status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-top:22px;
+    padding:6px 12px 6px 10px;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.04em;
+    color:var(--ink-2);
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;flex:none;
+    background:var(--accent);
+    box-shadow:0 0 0 0 var(--accent-soft);
+    animation:pulse 2.8s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 var(--accent-soft)}
+    70%{box-shadow:0 0 0 7px transparent}
+    100%{box-shadow:0 0 0 0 transparent}
+  }
+  .bio{
+    margin:26px 0 0;
+    color:var(--ink-2);
+    font-size:.95rem;
+    max-width:36ch;
+  }
+  .contact{
+    list-style:none;
+    margin:28px 0 0;
+    padding:0;
+    border-top:1px solid var(--line);
+  }
+  .contact li{border-bottom:1px solid var(--line)}
+  .contact a{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    padding:11px 2px;
+    text-decoration:none;
+    font-size:.92rem;
+    transition:color .18s ease,padding-inline-start .18s ease;
+  }
+  .contact a:hover{color:var(--accent);padding-inline-start:6px}
+  .contact .handle{font-family:var(--mono);font-size:.74rem;color:var(--ink-3)}
+  .contact a:hover .handle{color:var(--accent)}
+
+  /* sections */
+  .section + .section{margin-top:clamp(56px,7vw,88px)}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    padding-bottom:14px;
+  }
+  .section-head h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:1.12rem;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  .count{
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--ink-3);
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* work index */
+  .work{border-top:1px solid var(--line-strong)}
+  .item{border-bottom:1px solid var(--line)}
+  .head{
+    width:100%;
+    display:grid;
+    grid-template-columns:8rem minmax(0,auto) minmax(0,1fr) 14px;
+    grid-template-areas:"label title sub plus";
+    align-items:baseline;
+    gap:10px 18px;
+    padding:20px 2px;
+    background:none;
+    border:0;
+    color:inherit;
+    font:inherit;
+    text-align:left;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  .head:hover{background:var(--accent-soft)}
+  .label{
+    grid-area:label;
+    font-family:var(--mono);
+    font-size:.72rem;
+    line-height:1.35;
+    color:var(--ink-3);
+  }
+  .title{
+    grid-area:title;
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.25rem,2.5vw,1.6rem);
+    line-height:1.15;
+    letter-spacing:-.015em;
+    transition:color .2s ease;
+  }
+  .head:hover .title{color:var(--accent)}
+  .sub{
+    grid-area:sub;
+    color:var(--ink-2);
+    font-size:.88rem;
+    text-align:right;
+  }
+  .plus{grid-area:plus;position:relative;width:14px;height:14px;align-self:center;justify-self:end}
+  .plus::before,.plus::after{
+    content:"";position:absolute;background:var(--ink-3);
+    transition:transform .25s ease,background .2s ease;
+  }
+  .plus::before{top:6px;left:0;width:14px;height:2px}
+  .plus::after{left:6px;top:0;width:2px;height:14px}
+  .head:hover .plus::before,.head:hover .plus::after{background:var(--accent)}
+  .head[aria-expanded="true"] .plus::after{transform:scaleY(0)}
+
+  @media (max-width:700px){
+    .head{
+      grid-template-columns:minmax(0,1fr) 14px;
+      grid-template-areas:"label plus" "title title" "sub sub";
+      gap:6px 12px;
+    }
+    .sub{text-align:left}
+    .plus{align-self:start}
+  }
+
+  .panel{
+    padding:4px 2px 30px;
+    max-width:64ch;
+    animation:reveal .26s ease both;
+  }
+  @keyframes reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+  .panel p{margin:0;color:var(--ink-2)}
+  .question{
+    margin:20px 0 0;
+    padding-left:16px;
+    border-left:2px solid var(--line-strong);
+  }
+  .q-label{
+    display:block;
+    font-family:var(--mono);
+    font-size:.64rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin-bottom:7px;
+  }
+  .q-text{
+    font-family:var(--display);
+    font-size:.97rem;
+    line-height:1.5;
+    color:var(--ink);
+  }
+  .meta{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:18px;
+    margin:22px 0 0;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+  .meta dt{
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .meta dd{margin:5px 0 0;font-size:.9rem}
+  .visit{
+    display:inline-block;
+    margin-top:24px;
+    font-size:.88rem;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+    padding-bottom:2px;
+  }
+  .visit:hover{opacity:.75}
+
+  /* service */
+  .service{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+    gap:0 52px;
+    border-top:1px solid var(--line-strong);
+  }
+  .service-item{padding:24px 2px 26px;border-bottom:1px solid var(--line)}
+  .hours{
+    display:block;
+    font-family:var(--display);
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(2.1rem,4.4vw,2.7rem);
+    line-height:1;
+    letter-spacing:-.025em;
+    font-variant-numeric:tabular-nums;
+    color:var(--accent);
+  }
+  .hours-label{
+    display:block;
+    margin-top:9px;
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .org{display:block;margin-top:16px;font-size:1rem;font-weight:600}
+
+  /* coursework */
+  .courses{margin:0;border-top:1px solid var(--line-strong)}
+  .course-row{
+    display:grid;
+    grid-template-columns:minmax(150px,230px) minmax(0,1fr);
+    gap:8px 28px;
+    padding:16px 2px;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:640px){
+    .course-row{grid-template-columns:minmax(0,1fr);gap:4px}
+  }
+  .course-row dt{font-weight:600;font-size:.95rem}
+  .course-row dd{margin:0;color:var(--ink-2);font-size:.92rem;max-width:56ch}
+
+  /* closing */
+  .closing{
+    margin-top:clamp(64px,9vw,110px);
+    padding-top:36px;
+    border-top:1px solid var(--line-strong);
+  }
+  .closing h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.8rem,4.4vw,2.5rem);
+    line-height:1.1;
+    letter-spacing:-.02em;
+    margin:0;
+    max-width:20ch;
+    text-wrap:balance;
+  }
+  .mail{
+    display:inline-block;
+    margin-top:20px;
+    font-family:var(--mono);
+    font-size:1rem;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+    padding-bottom:3px;
+  }
+  .mail:hover{opacity:.75}
+  .colophon{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 24px;
+    justify-content:space-between;
+    margin-top:44px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:.7rem;
+    letter-spacing:.04em;
+    color:var(--ink-3);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+</style>
+
+<div class="shell">
+  <header class="rail">
+    <p class="eyebrow">Portfolio</p>
+    <h1 class="name">Konrad Kempinski</h1>
+    <p class="role">IB Diploma Programme senior at Curtis High School, headed into nursing.</p>
+
+    <span class="status"><span class="dot"></span>Senior year, IB Diploma Programme</span>
+
+    <p class="bio">I am drawn to work that rewards patience: running a procedure correctly, narrowing a research question until it is answerable, revising a draft until it holds up. Outside of coursework I write code, usually to take an idea from a rough sketch to something that actually runs.</p>
+
+    <ul class="contact">
+      <li><a href="mailto:tirk678@gmail.com">Email<span class="handle">tirk678@gmail.com</span></a></li>
+      <li><a href="https://github.com/xcodekiddy?tab=overview&amp;from=2026-09-01&amp;to=2026-09-20" target="_blank" rel="noopener">GitHub<span class="handle">@xcodekiddy</span></a></li>
+    </ul>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <span class="count">6 pieces</span>
+      </div>
+
+      <div class="work">
+        <article class="item">
+          <button class="head" type="button" aria-expanded="true" aria-controls="p1">
+            <span class="label">Side project</span>
+            <span class="title">Weather App</span>
+            <span class="sub">Free Mac and Windows downloads</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p1">
+            <p>My first big coding project, and the one piece here that came from outside school. It is a weather app built on JavaScript, CSS, and HTML, with downloads for Mac and Windows that anyone can get for free. The repository shows every contribution I made along the way, so you can follow the project from where it started to what it is now. This is the work I point to for perseverance, because nobody assigned it.</p>
+            <dl class="meta">
+              <div><dt>Built with</dt><dd>JavaScript, CSS, HTML</dd></div>
+              <div><dt>Platforms</dt><dd>macOS and Windows</dd></div>
+              <div><dt>Cost</dt><dd>Free to download</dd></div>
+            </dl>
+            <a class="visit" href="https://github.com/xcodekiddy/weather-app" target="_blank" rel="noopener">Open the repository</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <button class="head" type="button" aria-expanded="false" aria-controls="p2">
+            <span class="label">Math AI SL</span>
+            <span class="title">Math Internal Assessment</span>
+            <span class="sub">GDP per capita and life expectancy</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p2" hidden>
+            <p>My IB Math Applications and Interpretations SL internal assessment, and the first research paper I have ever written. It is also the first project of this size I have taken on, so it is where I learned what meeting IB expectations actually looks like.</p>
+            <div class="question">
+              <span class="q-label">Research question</span>
+              <span class="q-text">The correlation between a country's GDP per capita and its average life expectancy.</span>
+            </div>
+            <dl class="meta">
+              <div><dt>Course</dt><dd>Math AI SL</dd></div>
+              <div><dt>Methods</dt><dd>Pearson and Spearman correlation, linear regression</dd></div>
+              <div><dt>First</dt><dd>My first research paper</dd></div>
+            </dl>
+            <a class="visit" href="https://drive.google.com/file/d/1UkhI98i7LAMnK2DqpR0qglDW6smU08ri/view" target="_blank" rel="noopener">Read the assessment</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <button class="head" type="button" aria-expanded="false" aria-controls="p3">
+            <span class="label">History</span>
+            <span class="title">Historical Investigation</span>
+            <span class="sub">CNN and the Gulf War</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p3" hidden>
+            <p>By far the longest essay I have ever written, and I think one of my best pieces of work. It opens with an analysis of my sources, then the investigation itself, then a reflection that ties the whole thing back to Theory of Knowledge concepts.</p>
+            <div class="question">
+              <span class="q-label">Research question</span>
+              <span class="q-text">To what extent did the U.S. Department of Defense's media restrictions shape CNN's coverage of the Gulf War, and how did this affect the accuracy of public information?</span>
+            </div>
+            <dl class="meta">
+              <div><dt>Structure</dt><dd>Source analysis, investigation, reflection</dd></div>
+              <div><dt>Connects to</dt><dd>Theory of Knowledge</dd></div>
+            </dl>
+            <a class="visit" href="https://docs.google.com/document/d/1WWJB5E8tW44i5tiTrxfETWExPpgfKxdY16MTLRLmNvA/edit?usp=sharing" target="_blank" rel="noopener">Read the essay</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <button class="head" type="button" aria-expanded="false" aria-controls="p4">
+            <span class="label">Biology HL</span>
+            <span class="title">Biology Internal Assessment</span>
+            <span class="sub">Temperature and fungal amylase &middot; first draft</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p4" hidden>
+            <p>This is a first draft, and I am including it as a draft on purpose. A lot of the material is still labeled propositional rather than reported from the experiment, and I do not think it represents finished IB work yet. It is my first science experiment since the elementary school science fair, and the first one I have had to run at home without a teacher standing next to me. That part was a learning experience, to say the least.</p>
+            <div class="question">
+              <span class="q-label">Research question</span>
+              <span class="q-text">How does temperature (20, 30, 35, 40, 45, 50, 55, and 60&deg;C) affect the rate of starch hydrolysis by fungal &alpha;-amylase from <em>Aspergillus oryzae</em>, measured as the reciprocal of the time (1/time, s&#8315;&sup1;) taken for a 1% starch solution to stop producing a blue-black color with iodine?</span>
+            </div>
+            <dl class="meta">
+              <div><dt>Course</dt><dd>Biology HL</dd></div>
+              <div><dt>Range tested</dt><dd>20&ndash;60&deg;C, eight points</dd></div>
+              <div><dt>Status</dt><dd>First draft, in progress</dd></div>
+            </dl>
+            <a class="visit" href="https://docs.google.com/document/d/1Aw2Kq_h4lHQFDvFD9Pl3XUUKDnn-M20XzCHZnObgOpQ/edit?usp=sharing" target="_blank" rel="noopener">Read the draft</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <button class="head" type="button" aria-expanded="false" aria-controls="p5">
+            <span class="label">Spanish</span>
+            <span class="title">Spanish Video Project</span>
+            <span class="sub">Instructional video, written and edited</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p5" hidden>
+            <p>The last project I had in Spanish, and probably the only Spanish assignment I am proud of. Spanish has always been hard for me. I came into high school surrounded by people who took it in middle school or grew up speaking it at home, and I did not have that. I thought I would manage, since I am already bilingual and know what learning a language takes. This one is an instructional video on how to make your bed. I worked hard on the script, and it let me show off the video editing too.</p>
+            <dl class="meta">
+              <div><dt>Format</dt><dd>Instructional video, in Spanish</dd></div>
+              <div><dt>My part</dt><dd>Script, filming, editing</dd></div>
+            </dl>
+            <a class="visit" href="https://drive.google.com/file/d/1XZkzzFSO7kid_2-qImTaEA5EJdsF3V0q/view?usp=sharing" target="_blank" rel="noopener">Watch the video</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <button class="head" type="button" aria-expanded="false" aria-controls="p6">
+            <span class="label">Extended Essay</span>
+            <span class="title">Researcher Reflection Space</span>
+            <span class="sub">Around 15 annotated sources</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p6" hidden>
+            <p>The research space behind my Extended Essay, and the thing I will lean on hardest once I start the first draft. What I like about it is that it is collaborative: my mentor works in it, and so does a second teacher who has become a kind of secondary mentor. There are about 15 links in it with real summaries attached, and getting there meant reading through hundreds of articles and papers to find the ones worth keeping. It is the clearest record I have of how I evaluate a source.</p>
+            <dl class="meta">
+              <div><dt>Sources kept</dt><dd>Around 15, each summarized</dd></div>
+              <div><dt>Read to get there</dt><dd>Hundreds of articles and papers</dd></div>
+              <div><dt>Status</dt><dd>Ongoing, ahead of the first draft</dd></div>
+            </dl>
+            <a class="visit" href="https://docs.google.com/document/d/1LTv7j2LzjPiHzCbfV172CLQn9nO_WiqrDDSGb0ZojY4/edit?usp=sharing" target="_blank" rel="noopener">Open the reflection space</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Service</h2>
+        <span class="count">225 hours</span>
+      </div>
+      <div class="service">
+        <div class="service-item">
+          <span class="hours">150</span>
+          <span class="hours-label">hours volunteered</span>
+          <span class="org">Seaview Hospital</span>
+        </div>
+        <div class="service-item">
+          <span class="hours">75</span>
+          <span class="hours-label">hours volunteered</span>
+          <span class="org">Snug Harbor Botanical Center</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Diploma Programme</h2>
+      </div>
+      <dl class="courses">
+        <div class="course-row">
+          <dt>Biology HL</dt>
+          <dd>Internal assessment on enzyme kinetics, designed and run at home.</dd>
+        </div>
+        <div class="course-row">
+          <dt>Math Applications &amp; Interpretations SL</dt>
+          <dd>Internal assessment using correlation and regression on global development data.</dd>
+        </div>
+        <div class="course-row">
+          <dt>History</dt>
+          <dd>Historical investigation on wartime media control, with a Theory of Knowledge reflection.</dd>
+        </div>
+        <div class="course-row">
+          <dt>Spanish</dt>
+          <dd>Scripted and edited instructional video as the final project of the course.</dd>
+        </div>
+        <div class="course-row">
+          <dt>Extended Essay</dt>
+          <dd>In progress. Source research and reflection done; first draft next.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="closing">
+      <h2>Happy to talk about any of it.</h2>
+      <a class="mail" href="mailto:tirk678@gmail.com">tirk678@gmail.com</a>
+      <div class="colophon">
+        <span>Curtis High School &middot; IB Diploma Programme</span>
+        <span>&copy; 2026 Konrad Kempinski</span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll(".head").forEach(function (head) {
+    head.addEventListener("click", function () {
+      var panel = document.getElementById(head.getAttribute("aria-controls"));
+      var open = head.getAttribute("aria-expanded") === "true";
+      head.setAttribute("aria-expanded", String(!open));
+      panel.hidden = open;
+    });
+  });
+</script>
