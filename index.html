@@ -12,6 +12,7 @@
     --line-strong:#C7BFC9;
     --accent:#0E6E78;
     --accent-soft:rgba(14,110,120,.09);
+    --term:#0E7338;
     --display:"Fraunces","Iowan Old Style",Georgia,serif;
     --body:"Karla","Helvetica Neue",Arial,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
@@ -26,6 +27,7 @@
       --line-strong:#463C4E;
       --accent:#5ED7DF;
       --accent-soft:rgba(94,215,223,.11);
+      --term:#5EE08A;
     }
   }
   :root[data-theme="dark"]{
@@ -37,6 +39,7 @@
     --line-strong:#463C4E;
     --accent:#5ED7DF;
     --accent-soft:rgba(94,215,223,.11);
+    --term:#5EE08A;
   }
 
   *{box-sizing:border-box}
@@ -166,6 +169,28 @@
     font-size:.72rem;
     color:var(--ink-3);
     font-variant-numeric:tabular-nums;
+  }
+  .section-head h2.term-head{
+    font-family:var(--mono);
+    font-size:1.02rem;
+    letter-spacing:-.01em;
+    color:var(--term);
+    display:inline-flex;
+    align-items:baseline;
+    gap:.14em;
+    min-width:0;
+  }
+  .cursor{
+    display:inline-block;
+    width:.5em;
+    height:1em;
+    background:var(--term);
+    transform:translateY(.15em);
+    animation:blink 1.06s step-end infinite;
+  }
+  @keyframes blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){
+    .cursor{animation:none}
   }
 
   /* work index */
@@ -395,7 +420,7 @@
   <main>
     <section class="section">
       <div class="section-head">
-        <h2>Programming</h2>
+        <h2 class="term-head">Programming<span class="cursor" aria-hidden="true"></span></h2>
         <span class="count">3 projects</span>
       </div>
 
