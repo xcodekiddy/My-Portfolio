@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Konrad Kempinski</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -395,7 +396,7 @@
     <section class="section">
       <div class="section-head">
         <h2>Programming</h2>
-        <span class="count">2 projects</span>
+        <span class="count">3 projects</span>
       </div>
 
       <div class="work">
@@ -432,6 +433,24 @@
               <div><dt>Deployed</dt><dd>Netlify, from GitHub</dd></div>
             </dl>
             <a class="visit" href="https://github.com/xcodekiddy/My-Portfolio" target="_blank" rel="noopener">Open the repository</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <button class="head" type="button" aria-expanded="false" aria-controls="p8">
+            <span class="label">Side project</span>
+            <span class="title">Scientific Calculator</span>
+            <span class="sub">Reads whole expressions, not key presses</span>
+            <span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="panel" id="p8" hidden>
+            <p>A calculator for the browser that reads a whole expression instead of one key press at a time, so you can type 2&times;(3+4)^2&divide;sin(30) and watch the answer update as you go. The interesting part is not the keypad, it is the parser underneath: it breaks what you type into tokens, reorders them so that brackets, powers, and functions bind in the right order, and only then works out the answer. That is what makes &minus;2^2 come out as &minus;4, the way it does in algebra rather than the way a pocket calculator usually gets it. The maths lives in its own file with no interface code in it, which meant I could cover it with tests and then change the buttons without wondering whether I had broken the arithmetic.</p>
+            <dl class="meta">
+              <div><dt>Built with</dt><dd>JavaScript, CSS, HTML</dd></div>
+              <div><dt>Structure</dt><dd>No dependencies, no build step</dd></div>
+              <div><dt>Tested with</dt><dd>17 tests, no framework</dd></div>
+            </dl>
+            <a class="visit" href="https://github.com/xcodekiddy/Scientific-Calculator" target="_blank" rel="noopener">Open the repository</a>
           </div>
         </article>
       </div>
