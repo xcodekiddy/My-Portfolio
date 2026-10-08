@@ -4,33 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root{
-    --bg:#F1EFEF;
-    --ink:#231D27;
-    --ink-2:#6E6573;
-    --ink-3:#938A97;
-    --line:#DDD7DE;
-    --line-strong:#C7BFC9;
-    --accent:#0E6E78;
-    --accent-soft:rgba(14,110,120,.09);
-    --term:#0E7338;
-    --display:"Fraunces","Iowan Old Style",Georgia,serif;
-    --body:"Karla","Helvetica Neue",Arial,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#16121A;
-      --ink:#F0EAF2;
-      --ink-2:#A79CAE;
-      --ink-3:#7C7185;
-      --line:#332B3A;
-      --line-strong:#463C4E;
-      --accent:#5ED7DF;
-      --accent-soft:rgba(94,215,223,.11);
-      --term:#5EE08A;
-    }
-  }
-  :root[data-theme="dark"]{
+    color-scheme:dark;
     --bg:#16121A;
     --ink:#F0EAF2;
     --ink-2:#A79CAE;
@@ -40,6 +14,21 @@
     --accent:#5ED7DF;
     --accent-soft:rgba(94,215,223,.11);
     --term:#5EE08A;
+    --display:"Fraunces","Iowan Old Style",Georgia,serif;
+    --body:"Karla","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  :root[data-theme="light"]{
+    color-scheme:light;
+    --bg:#F1EFEF;
+    --ink:#231D27;
+    --ink-2:#6E6573;
+    --ink-3:#938A97;
+    --line:#DDD7DE;
+    --line-strong:#C7BFC9;
+    --accent:#0E6E78;
+    --accent-soft:rgba(14,110,120,.09);
+    --term:#0E7338;
   }
 
   *{box-sizing:border-box}
@@ -433,7 +422,7 @@
             <span class="plus" aria-hidden="false"></span>
           </button>
           <div class="panel" id="p1" hidden>
-            <p>My first big coding project. It is a weather app built on JavaScript, CSS, and HTML, with downloads for Mac and Windows that anyone can get for free. The repository shows every contribution I made along the way, so you can follow the project from where it started to what it is now. This is the work I point to for perseverance, because nobody assigned it.</p>
+            <p>My first big coding project. It is a weather app built on JavaScript, CSS, and HTML, with downloads for Mac and Windows that anyone can get for free. The repository shows every contribution I made along the way, so you can follow the project from where it started to what it is now.</p>
             <dl class="meta">
               <div><dt>Built with</dt><dd>JavaScript, CSS, HTML</dd></div>
               <div><dt>Platforms</dt><dd>macOS and Windows</dd></div>
@@ -451,7 +440,7 @@
             <span class="plus" aria-hidden="true"></span>
           </button>
           <div class="panel" id="p2" hidden>
-            <p>The site you are reading right now. It is a single HTML file with no frameworks and no build step, so every line of the layout, the type, and the color system is something I wrote and can explain. The panel you just opened runs on under ten lines of JavaScript, and each one carries the ARIA attributes that let a keyboard or a screen reader follow along. It reads your system setting and switches between light and dark on its own. Most of the work was not code but restraint: choosing three typefaces, one accent color, and then deciding what to leave out.</p>
+            <p>The site you are reading right now. It is a single HTML file with no frameworks and no build step, so every line of the layout, the type, and the color system is something I wrote and can explain. The panel you just opened runs on under ten lines of JavaScript, and each one carries the ARIA attributes that let a keyboard or a screen reader follow along. </p>
             <dl class="meta">
               <div><dt>Built with</dt><dd>HTML, CSS, JavaScript</dd></div>
               <div><dt>Structure</dt><dd>One file, no frameworks</dd></div>
